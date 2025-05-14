@@ -1,32 +1,25 @@
-
 import "bootstrap";
 import "./style.css";
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
+window.onload = function () {
+  const pronouns = ['my', 'your', 'our'];
+  const adjectives = ['awesome', 'cool', 'amazing'];
+  const nouns = ['website', 'project', 'business'];
 
-window.onload = function() {
-     const pronouns = ['my', 'your', 'our'];
-     const adjectives = ['awesome', 'cool', 'amazing'];
-     const nouns = ['website', 'project', 'business'];
+  
+  const randomPronoun = pronouns[Math.floor(Math.random() * pronouns.length)];
+  const randomAdjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+  const randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
 
-     const domainNames = [];
+  const domainName = randomPronoun + randomAdjective + randomNoun + '.com';
 
-     for (const pronoun of pronouns) {
-       for (const adjective of adjectives) {
-         for (const noun of nouns) {
-           const domainName = pronoun + adjective + noun + '.com';
-           domainNames.push(domainName);
-         }
-       }
-     }
+ 
+  const outputElement = document.createElement('div');
+  const p = document.createElement('p');
+  p.textContent = domainName;
+  outputElement.appendChild(p);
 
-     const outputElement = document.createElement('div');
-     domainNames.forEach(domainName => {
-       const p = document.createElement('p');
-       p.textContent = domainName;
-       outputElement.appendChild(p);
-     });
-
-     document.body.appendChild(outputElement);
-   };
+  document.body.appendChild(outputElement);
+};
